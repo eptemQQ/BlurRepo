@@ -1,0 +1,54 @@
+[
+	{
+		"id":"d18ddc3a-76b0-43e7-b86d-1a363e19c2b6",
+		"name":"Lays",
+		"desc":"Футбол вкуснее с Lays",
+		"groupName":"Акции",
+		"type": "item",
+		"image":"https://picsum.photos/240/180/"
+	},
+	{
+		"id":"72cdb66e-8bad-4bd4-8278-2531c3d1f895",
+		"name":"Велосипед Stels",
+		"groupName":"Акции",
+		"type":"product",
+		"image":"https://picsum.photos/240/180/",
+		"price":100,
+		"discount":0.7
+	},
+	{
+		"id":"2b3b2455-bacb-4ec6-9edb-6682ed99e282",
+		"name":"Чиллаут микс (Миндаль-Клюква-Арахис-Кунжут)",
+		"groupName":"Прочее",
+		"type":"product",
+		"image":"https://picsum.photos/240/180/",
+		"price":100,
+		"discount":0.7
+	},
+	{
+		"id":"0ecaf334-5762-4498-83ba-e38c99d4c23d",
+		"name":"Велосипед Modern",
+		"groupName":"Велосипеды",
+		"type":"product",
+		"image":"https://picsum.photos/240/180/",
+		"price":100,
+		"discount":0.4
+	},
+	{
+		"id":"b71fc787-4aa7-4678-a93c-aa51fd148a6a",
+		"name":"Бульмени",
+		"desc":"ГОРЯЧАЯ ШТУЧКА Со сливочным маслом",
+		"groupName":"Прочее",
+		"type":"item",
+		"image":"https://picsum.photos/240/180/"
+	},
+	{
+		"id":"ce92a42f-2a30-4a26-9fdb-ec1fa062675d",
+		"name":"FAMILIA Plus 2-х слойная белая",
+		"groupName":"Акции",
+		"type":"product",
+		"image":"https://picsum.photos/240/180/",
+		"price":1200,
+		"discount":0.95
+	}
+]

@@ -1,0 +1,22 @@
+[
+	{
+		"id":"b4a95512-8de2-4621-8956-3289e991fb0b",
+		"image":"https://picsum.photos/500/324/"
+	},
+	{
+		"id":"4e1c703d-4841-469b-be2e-8f15d6cbd0c3",
+		"title":"Lays",
+		"image":"https://picsum.photos/500/324/"
+	},
+	{
+		"id":"4315705e-e6fc-4dfa-a52e-c9de2031ed53",
+		"desc":"ФРУТОНЯНЯ Для детского питания с яблоком, для малышей от 0 до 3 лет",
+		"image":"https://picsum.photos/500/324/"
+	},
+	{
+		"id":"0b8e40ae-5e13-4bdd-905d-a13ffdd94b65",
+		"title":"Бульмени",
+		"desc":"ГОРЯЧАЯ ШТУЧКА Со сливочным маслом",
+		"image":"https://picsum.photos/500/324/"
+	}
+]
