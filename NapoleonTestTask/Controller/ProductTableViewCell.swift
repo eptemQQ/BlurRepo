@@ -10,17 +10,17 @@ import UIKit
 
 class ProductTableViewCell: UITableViewCell {
 
+    #warning("цвет лучше вынести в extension UIColor в отдельный файл")
     let newPriceColor = #colorLiteral(red: 1, green: 0.4937272626, blue: 0.5617902092, alpha: 1)
     
+    #warning("аутлеты через didSet настраивать можно, но как мне кажется, лучше такую настройку по максимуму вынести в .storyboard/.xib чтобы код был более читаемый ")
     @IBOutlet weak var ProductNameLabel: UILabel!
     
     @IBOutlet weak var productImage: UIImageView! {
         didSet {
-        
             productImage.layer.masksToBounds = false
             productImage.layer.cornerRadius = 5
             productImage.clipsToBounds = true
-            //productImage.contentMode = .scaleAspectFill
         }
     }
     
@@ -53,6 +53,7 @@ class ProductTableViewCell: UITableViewCell {
         }
     }
     
+    #warning("лучше удалять те методы, которые никак не используешь")
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -64,6 +65,11 @@ class ProductTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    #warning("""
+    по поводу этих методов настройки ячейки см. MainScreenViewController line 207
+    
+    мне лень проверять как у тебя работает) но не всегда нужно прятать лейблы, если текст nil, можешь просто передать в текст нил и лейбла не будет видно (если у лейбла конечно нет бекграунда)
+    """)
     func setupNameLabel(name: String?) {
         if name != nil {
             self.ProductNameLabel.text = name
@@ -82,7 +88,11 @@ class ProductTableViewCell: UITableViewCell {
         }
     }
     
-    func setupDiscountLabels(discount: Float?,price: Int?) {
+    #warning("""
+    в метод передаешь оба параметра как optional, а проверяешь только discount
+    понятно, что не логично, что discount пришла с сервера, а price нет, но лучше не force unwrap без 100% уверенности
+    """)
+    func setupDiscountLabels(discount: Float?, price: Int?) {
         if discount != nil {
             self.priceLabel.text = "-\(Int(discount!*100))%"
         
@@ -96,7 +106,29 @@ class ProductTableViewCell: UITableViewCell {
         }
     }
     
+    #warning("""
+    ты используешь одинаковую загрузку изображения в 2 ячейках, при этом полностью переписываешь код
+    
+    лучше вынести это в отдельный метод, или сделать extension ImageView для загрузки картинки с URL (см. библиотеку AlamofireImage)
+    
+    также ты не делаешь catch let error, чтобы запринтить конкретную ошибку (которая скорее всего будет не особо информативной)
+    поэтому можно либо:
+    
+    а) заменить вербозный do-catch на
+    
+        if let data = try? Data(contentsOf: imageUrl) {
+            DispatchQueue...
+        } else {
+            print("error loading image with URL: \\(imageUrl)")
+        }
+    
+    таким образом логируя некорректный URL
+    
+    
+    b) в catch блоке ловить ошибку (catch let error) и принтить ее + принтить URL, по которому не удалось загрузить
+    """)
     func setupImage(with stringUrl: String) {
+        #warning("тут надо сначала через guard проверить создается ли URL со строки и не делать force unwrap на 129")
         let imageUrl = URL(string: stringUrl)
         DispatchQueue.global().async {
             do{

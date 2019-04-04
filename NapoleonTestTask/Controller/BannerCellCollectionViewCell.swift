@@ -29,6 +29,7 @@ class BannerCellCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var productDesc: UILabel!
     
+    #warning("см. ProductTableViewCell line 104 + все, что написано в ячейке таблицы, распространяется и на ячейку коллекции")
     func setupImage(with stringUrl: String) {
         let imageUrl = URL(string: stringUrl)
         DispatchQueue.global().async {
@@ -72,6 +73,7 @@ class BannerCellCollectionViewCell: UICollectionViewCell {
         blurView.frame = descView.bounds
         blurView.autoresizingMask = [ .flexibleWidth, .flexibleHeight]
         descView.addSubview(blurView)
+        descView.sendSubviewToBack(blurView)
     }
     
     override func awakeFromNib() {
